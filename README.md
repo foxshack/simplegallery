@@ -42,6 +42,35 @@ It doesn't provide styling for your images in the page but add `.gallery`
 around a series of images and each image will get a click event handler that
 will launch the gallery modal.
 
+## Using as a Module
+
+If you're using a modern build tool or module bundler, you can import the library as an ES module:
+
+```javascript
+import simpleGallery from 'simplegallery';
+
+// Initialize with default options (looks for .gallery class)
+simpleGallery();
+
+// Or with custom options
+simpleGallery({
+  selector: '.my-gallery',
+  // additional options...
+});
+```
+
+You'll also need to import the CSS separately:
+
+```javascript
+import 'simplegallery/dist/gallery.css';
+```
+
+Or in your HTML:
+
+```html
+<link rel="stylesheet" href="node_modules/simplegallery/dist/gallery.css">
+```
+
 ## Example Usage
 
 See the demo folder for a working example:
