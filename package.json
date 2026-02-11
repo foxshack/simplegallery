@@ -1,8 +1,8 @@
 {
   "name": "simplegallery",
-  "version": "1.1.0",
+  "version": "1.0.2",
   "description": "Simple Modal Gallery",
-  "main": "/src/gallery.js",
+  "main": "src/gallery.js",
   "exports": {
     ".": {
       "import": "./src/gallery.mjs",
@@ -12,6 +12,8 @@
     }
   },
   "scripts": {
+    "clean": "rm -rf .parcel-cache dist",
+    "prebuild": "npm run clean",
     "build": "parcel build --target default",
     "watch": "parcel watch --target default",
     "lintjs": "eslint --fix ./src/gallery.mjs",
@@ -28,21 +30,21 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mikeh74/simplegallery.git"
+    "url": "git+https://github.com/foxshack/simplegallery.git"
   },
   "author": "Mike Horrocks",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mikeh74/simplegallery/issues"
+    "url": "https://github.com/foxshack/simplegallery/issues"
   },
-  "homepage": "https://github.com/mikeh74/simplegallery#readme",
+  "homepage": "https://github.com/foxshack/simplegallery#readme",
   "devDependencies": {
     "@eslint/js": "^9.20.0",
-    "@parcel/transformer-sass": "^2.16.3",
+    "@parcel/transformer-sass": "^2.16.4",
     "@stylistic/eslint-plugin": "^3.1.0",
     "eslint": "^9.20.0",
     "globals": "^15.14.0",
-    "parcel": "^2.16.3",
+    "parcel": "^2.16.4",
     "sass": "^1.83.4"
   }
 }

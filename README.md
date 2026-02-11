@@ -3,11 +3,10 @@
 A lightweight gallery that displays a series of image elements in a
 lightbox-style modal.
 
-## Installation
+## Basic Usage via CDN
 
-The simplest way of using this library is to copy the dist folder to your
-project and then reference the `gallery.css` and `gallery.js` files in your
-html:
+Using the library via a CDN is the easiest way to get started, below is a 
+minimal example:
 
 ```html
 <!DOCTYPE html>
@@ -17,9 +16,7 @@ html:
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Simple Gallery Example</title>
-
-  <link rel="stylesheet" href="/path/to/dist/gallery.css">
-
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/foxshack/simplegallery/dist/gallery.css">
 </head>
 
 <body>
@@ -32,15 +29,27 @@ html:
     <img src="./images/img5.jpg" alt="Shell Sculpture">
   </div>
 
-  <script src="/path/to/dist/gallery.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/foxshack/simplegallery/dist/gallery.js"></script>
 </body>
 </html>
 
 ```
 
-It doesn't provide styling for your images in the page but add `.gallery`
-around a series of images and each image will get a click event handler that
-will launch the gallery modal.
+## CSS 
+
+The gallery.css doesn't provide styling for your images in the page but add
+`.gallery` around a series of images and each image will get a click event
+handler that will launch the gallery modal.
+
+## Installation
+
+If you have a project that uses a bundler such as webpack, rollup or parcel
+then you can install the package as follows:
+
+```
+npm install -D github:foxshack/simplegallery#1.0
+
+```
 
 ## Using as a Module
 
@@ -65,17 +74,11 @@ You'll also need to import the CSS separately:
 import 'simplegallery/dist/gallery.css';
 ```
 
-Or in your HTML:
-
-```html
-<link rel="stylesheet" href="node_modules/simplegallery/dist/gallery.css">
-```
-
 ## Example Usage
 
 See the demo folder for a working example:
 
-[Working demo](https://mikeh74.github.io/simplegallery/demo/)
+[Working demo](https://foxshack.github.io/simplegallery/demo/)
 
 ## Basic Usage
 
