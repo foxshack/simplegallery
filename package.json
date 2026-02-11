@@ -1,6 +1,6 @@
 {
   "name": "simplegallery",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Simple Modal Gallery",
   "main": "src/gallery.js",
   "exports": {

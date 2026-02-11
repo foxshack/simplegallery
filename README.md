@@ -1,147 +1,104 @@
 # Simple Gallery
 
-A lightweight gallery that displays a series of image elements in a
-lightbox-style modal.
+A lightweight gallery that displays images in a lightbox-style modal.
 
-## Basic Usage via CDN
+## Demo
 
-Using the library via a CDN is the easiest way to get started, below is a 
-minimal example:
+[View live demo](https://foxshack.github.io/simplegallery/demo/)
+
+## Quick Start (CDN)
+
+Include the CSS and JS files, then wrap your images in a `.gallery` container:
 
 ```html
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Simple Gallery Example</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/foxshack/simplegallery/dist/gallery.css">
 </head>
-
 <body>
-
-  <div id="gal1" class="gallery">
+  <div class="gallery">
     <img src="./images/img1.jpg" alt="Malaga at Christmas">
     <img src="./images/img2.jpg" alt="Seagull">
     <img src="./images/img3.jpg" alt="Lorem ipsum">
     <img src="./images/img4.jpg" alt="At the carwash">
     <img src="./images/img5.jpg" alt="Shell Sculpture">
   </div>
-
   <script src="https://cdn.jsdelivr.net/gh/foxshack/simplegallery/dist/gallery.js"></script>
 </body>
 </html>
-
 ```
 
-## CSS 
+## Installation (npm)
 
-The gallery.css doesn't provide styling for your images in the page but add
-`.gallery` around a series of images and each image will get a click event
-handler that will launch the gallery modal.
-
-## Installation
-
-If you have a project that uses a bundler such as webpack, rollup or parcel
-then you can install the package as follows:
-
-```
+```bash
 npm install -D github:foxshack/simplegallery#1.0
-
 ```
 
-## Using as a Module
-
-If you're using a modern build tool or module bundler, you can import the library as an ES module:
+**ES Module Usage:**
 
 ```javascript
 import simpleGallery from 'simplegallery';
 
-// Initialize with default options (looks for .gallery class)
+// Initialize with default options
 simpleGallery();
 
-// Or with custom options
-simpleGallery({
-  selector: '.my-gallery',
-  // additional options...
-});
+// Or customize the selector
+simpleGallery({ selector: '.my-gallery' });
 ```
 
-You'll also need to import the CSS separately:
+You will still need to load in or bundle the CSS which will depend on whether
+you use a CSS precompiler or other, or you could still use the CDN option above.
 
-```javascript
-import 'simplegallery/dist/gallery.css';
-```
+## Usage
 
-## Example Usage
-
-See the demo folder for a working example:
-
-[Working demo](https://foxshack.github.io/simplegallery/demo/)
-
-## Basic Usage
-
-Wrap the images in a container with a class that can be passed to the script.
-By default, this class is `gallery`, but it can be changed when initializing
-the script.
-
-Here is a simple setup:
+Wrap images in a container with the `.gallery` class (customizable). Each image
+gets a click handler to launch the modal:
 
 ```html
 <div class="gallery">
-  <div class="gallery-item">
-    <img src="./images/img1.jpg" data-sg-desc="This is my description" alt="Malaga at Christmas">
-  </div>
-  <div class="gallery-item">
-    <img src="./images/img2.jpg" data-sg-src="./images/img5.jpg" alt="Seagull">
-  </div>
-  <div class="gallery-item">
-    <img src="./images/img3.jpg" alt="Southport at Sunset">
-  </div>
+  <img src="./images/img1.jpg" data-sg-desc="This is my description" alt="Malaga at Christmas">
+  <img src="./images/img2.jpg" data-sg-src="./images/img5.jpg" alt="Seagull">
+  <img src="./images/img3.jpg" alt="Southport at Sunset">
 </div>
 
 <script src="./dist/gallery.js"></script>
-
 ```
 
-## Data variables
-The following data attributes can be used on the image elements to provide
-additional functionality:
+## Data Attributes
 
-| Data Attribute     | Description                                                                 |
-|--------------------|-----------------------------------------------------------------------------|
-| `data-sg-desc`     | Adds a description to the image, displayed in the modal.                    |
-| `data-sg-src`      | Specifies an alternate image source for the modal (e.g., higher resolution).|
+Optional data attributes for enhanced functionality:
+
+| Attribute | Description |
+|-----------|-------------|
+| `data-sg-desc` | Description text displayed in the modal |
+| `data-sg-src`  | Alternate image source for modal (e.g., high-res version) |
+
+Add these to each image that is part of the gallery
+
+## Styling
+
+The included CSS provides modal styling but not page layout for your gallery. Override CSS variables in your stylesheet for basic theming:
+
+| Variable            | Description |
+|----------           |-------------|
+| `--sg-modal-bg`     | Modal background color  |
+| `--sg-text-color`   | Text color in modal     |
+| `--sg-btn-bg`       | Button background color |
+| `--sg-modal-zindex` | Modal z-index           |
+| `--sg-font-family`  | Font family             |
 
 Example:
 
-```html
-<img src="./images/img1.jpg" data-sg-desc="This is my description" alt="Malaga at Christmas">
-<img src="./images/img2.jpg" data-sg-src="./images/img5.jpg" alt="Seagull">
+```css
+:root {
+  --sg-modal-bg: rgba(0, 0, 0, 0.95);
+  --sg-text-color: #ffffff;
+}
 ```
 
-## CSS Variables and styling
-
-You will need to include the `style.css` file in your project. The easiest way 
-is to copy the CSS file to your project.
-
-If you are using a bundler, you might have an alternate workflow (see the 
-webpack/rollup/parcel documentation for more on managing CSS files via
-those options).
-
-The following CSS variables are available:
- * --sg-modal-bg: Background color for the modal.
- * --sg-text-color: Text color used within the modal.
- * --sg-btn-bg: Background color for buttons within the modal.
- * --sg-modal-zindex: Z-index value for the modal to ensure it appears above other elements.
- * --sg-font-family: Font family used for text within the modal.
-
-Add them to the :root element in your CSS to override these properties to
-provide some basic theming to make the styling more in keeping with your
-site.
-
-If you want styling that is more bespoke then it is recommended that you
-copy the style.css file from the dist folder and add it directly to your
-project and update as necessary (the SCSS version can be found in the src
-folder).
+For extensive customization, copy `dist/gallery.css` (or `src/gallery.scss`)
+to your project and modify directly.
