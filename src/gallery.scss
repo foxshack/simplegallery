@@ -25,16 +25,11 @@ $sg-modal-zindex: 10000;
     pointer-events: auto;
     position: fixed;
     inset: 0;
-    // top: 0;
-    // left: 0;
-    // bottom: 0;
-    // right: 0;
     height: auto;
     background-color: $sg-modal-bg;
     background-color: var(--sg-modal-bg, $sg-modal-bg);
     z-index: $sg-modal-zindex;
     z-index: var(--sg-modal-zindex, $sg-modal-zindex);
-    // overflow-y: hidden;
     @include flex-center;
     opacity: 1;
     transition: opacity 0.33s ease-in-out;
@@ -85,7 +80,7 @@ $sg-modal-zindex: 10000;
 
     &:hover .simple-gallery-play-icon-circle {
       transition: $icon-transition;
-      fill: red;
+      fill: #ff0000;
     }
   }
 
@@ -163,7 +158,6 @@ $sg-modal-zindex: 10000;
 
   &-button {
     top: 46%;
-    // padding: 0.8rem;
     height: 2.5rem;
     width: 2.5rem;
 
