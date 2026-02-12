@@ -4,7 +4,7 @@ A lightweight gallery that displays images in a lightbox-style modal.
 
 ## Demo
 
-[View live demo](https://foxshack.github.io/simplegallery/demo/)
+[View live demo](https://foxshack.github.io/simplegallery/)
 
 ## Quick Start (CDN)
 
