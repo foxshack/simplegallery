@@ -18,21 +18,21 @@
   <div id="simple-gallery" 
     class="simple-gallery">
     ${i}
-    <a href="#" class="simple-gallery-button simple-gallery-button-previous">
+    <button class="simple-gallery-button simple-gallery-button-previous">
       <svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
           <path id="Path" class="simple-gallery-icon-stroke" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" d="M 66 8 L 24 50 L 66 92 L 66 92"/>
       </svg>
-    </a>
-    <a href="#" class="simple-gallery-button simple-gallery-button-next">
+    </button>
+    <button class="simple-gallery-button simple-gallery-button-next">
       <svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
           <path id="Path" class="simple-gallery-icon-stroke" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" d="M 34 8 L 76 50 L 34 92 L 34 92"/>
       </svg>
-    </a>
-    <a href="#" class="simple-gallery-button-close">
+    </button>
+    <button class="simple-gallery-button-close">
       <svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
           <path id="Path" class="simple-gallery-icon-stroke" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" d="M 20 20 L 50 50 L 20 80 L 20 80 M 80 20 L 50 50 L 80 80 L 80 80"/>
       </svg>
-    </a>
+    </button>
     <div class="player-wrapper">
       <div class="ytplayer-embed-responsive">
         <div id="ytplayer" class="ytplayer-iframe"></div>

@@ -19,14 +19,16 @@ $sg-modal-zindex: 10000;
   transition: opacity 0.33s ease-in-out;
   overflow: hidden;
   height: 0;
+  position: absolute;
 
   &.gallery-active {
     pointer-events: auto;
     position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
+    inset: 0;
+    // top: 0;
+    // left: 0;
+    // bottom: 0;
+    // right: 0;
     height: auto;
     background-color: $sg-modal-bg;
     background-color: var(--sg-modal-bg, $sg-modal-bg);
@@ -149,6 +151,9 @@ $sg-modal-zindex: 10000;
     background-color: var(--sg-btn-bg, $sg-btn-bg);
     justify-content: center;
     align-items: center;
+    border: none; 
+    cursor: pointer; 
+    opacity: 0.8; transition: opacity 0.25s ease-in-out;
 
     &:hover,
     &:focus-visible {
@@ -158,9 +163,9 @@ $sg-modal-zindex: 10000;
 
   &-button {
     top: 46%;
-    padding: 0.8rem;
-    height: 1.5rem;
-    width: 1.5rem;
+    // padding: 0.8rem;
+    height: 2.5rem;
+    width: 2.5rem;
 
     svg {
       height: 1.5rem;
