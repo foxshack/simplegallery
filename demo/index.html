@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Simple Gallery Examples</title>
+  <title>Simple Gallery - Lightweight Lightbox Image Gallery</title>
 
   <link rel="stylesheet" href="../dist/gallery.css">
 
@@ -18,10 +18,17 @@
       --sg-font-family: Tahoma, sans-serif;
     } */
 
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
       color: #333;
       background-color: #f9f9f9;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
     }
 
     .container {
@@ -30,30 +37,145 @@
       padding: 20px;
     }
 
+    .hero {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .hero h1 {
+      margin: 0 0 20px 0;
+      font-size: 3em;
+      font-weight: 700;
+    }
+
+    .hero p {
+      font-size: 1.3em;
+      margin: 10px 0;
+      opacity: 0.95;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin: 40px 0;
+    }
+
+    .feature {
+      background: white;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .feature h3 {
+      margin-top: 0;
+      color: #667eea;
+    }
+
+    section {
+      margin: 60px 0;
+    }
+
+    h2 {
+      color: #667eea;
+      border-bottom: 3px solid #667eea;
+      padding-bottom: 10px;
+      margin-top: 40px;
+    }
+
+    h3 {
+      color: #764ba2;
+      margin-top: 30px;
+    }
+
+    pre {
+      background: #2d2d2d;
+      color: #f8f8f2;
+      padding: 20px;
+      border-radius: 6px;
+      overflow-x: auto;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    code {
+      font-family: 'Courier New', Courier, monospace;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      background: white;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #667eea;
+      color: white;
+      font-weight: 600;
+    }
+
+    tr:hover {
+      background-color: #f5f5f5;
+    }
+
     .gallery {
       display: flex;
       flex-wrap: wrap;
       justify-content: flex-start;
       align-items: center;
+      gap: 10px;
     }
-
-    .full-page {
-      min-height: 100vh;
-    } 
 
     .gallery .gallery-item img {
       width: 200px;
       height: 200px;
       overflow: hidden;
-      margin: 10px;
       border: 1px solid #ccc;
       border-radius: 5px;
-      box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
       object-fit: cover;
       cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .gallery .gallery-item img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      background: #667eea;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background: #764ba2;
+    }
+
+    .note {
+      background: #fff3cd;
+      border-left: 4px solid #ffc107;
+      padding: 15px;
+      margin: 20px 0;
+      border-radius: 4px;
     }
   </style>
 
@@ -61,12 +183,188 @@
 
 <body>
 
-  <div class="container">
-    <div class="full-page">
-      <h1>Simple Gallery Example</h1>
-      <p>Click on an image to open a gallery</p>
+  <div class="hero">
+    <div class="container">
+      <h1>Simple Gallery</h1>
+      <p>A lightweight, dependency-free JavaScript gallery library</p>
+      <p>Display images in a beautiful lightbox-style modal with keyboard navigation</p>
+      <a href="https://github.com/foxshack/simplegallery" class="btn" style="margin-top: 20px;">View on GitHub</a>
+    </div>
+  </div>
 
-      <h2>Gallery 1</h2>
+  <div class="container">
+
+    <section id="features">
+      <h2>Features</h2>
+      <div class="features">
+        <div class="feature">
+          <h3>🪶 Lightweight</h3>
+          <p>No dependencies. Minimal file size for fast loading.</p>
+        </div>
+        <div class="feature">
+          <h3>⌨️ Keyboard Navigation</h3>
+          <p>Navigate through images with arrow keys and close with Escape.</p>
+        </div>
+        <div class="feature">
+          <h3>📱 Responsive</h3>
+          <p>Works perfectly on mobile, tablet, and desktop devices.</p>
+        </div>
+        <div class="feature">
+          <h3>🎨 Customizable</h3>
+          <p>Easy theming with CSS variables to match your site's design.</p>
+        </div>
+        <div class="feature">
+          <h3>🎬 YouTube Support</h3>
+          <p>Embed YouTube videos alongside your images using data attributes.</p>
+        </div>
+        <div class="feature">
+          <h3>💬 Image Descriptions</h3>
+          <p>Add captions and descriptions to provide context for your images.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="installation">
+      <h2>Installation</h2>
+
+      <h3>CDN (Quick Start)</h3>
+      <p>The easiest way to get started is using a CDN:</p>
+      <pre><code>&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/foxshack/simplegallery@1.0.3/dist/gallery.css"&gt;
+&lt;script src="https://cdn.jsdelivr.net/gh/foxshack/simplegallery@1.0.3/dist/gallery.js"&gt;&lt;/script&gt;</code></pre>
+
+      <h3>NPM</h3>
+      <p>Install via npm for use in build systems:</p>
+      <pre><code>npm install -D github:foxshack/simplegallery#1.0</code></pre>
+
+      <p>Then import in your JavaScript:</p>
+      <pre><code>import simpleGallery from 'simplegallery';
+
+// Initialize with default options
+simpleGallery();
+
+// Or customize the selector
+simpleGallery({ selector: '.my-gallery' });</code></pre>
+    </section>
+
+    <section id="usage">
+      <h2>Usage</h2>
+      
+      <p>Wrap your images in a container with the <code>.gallery</code> class (or your custom selector):</p>
+      
+      <pre><code>&lt;div class="gallery"&gt;
+  &lt;img src="./images/img1.jpg" alt="Malaga at Christmas"&gt;
+  &lt;img src="./images/img2.jpg" alt="Seagull"&gt;
+  &lt;img src="./images/img3.jpg" alt="Lorem ipsum"&gt;
+&lt;/div&gt;
+
+&lt;script src="./dist/gallery.js"&gt;&lt;/script&gt;</code></pre>
+
+      <p>Each image automatically gets a click handler to launch the modal gallery.</p>
+
+      <h3>Data Attributes</h3>
+      <p>Enhance your gallery with optional data attributes:</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Attribute</th>
+            <th>Description</th>
+            <th>Example</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>data-sg-desc</code></td>
+            <td>Description text displayed in the modal</td>
+            <td><code>data-sg-desc="Beautiful sunset"</code></td>
+          </tr>
+          <tr>
+            <td><code>data-sg-src</code></td>
+            <td>Alternate image source for modal (e.g., high-res version)</td>
+            <td><code>data-sg-src="./images/img-hd.jpg"</code></td>
+          </tr>
+          <tr>
+            <td><code>data-sg-youtubeid</code></td>
+            <td>YouTube video ID to embed instead of image in modal</td>
+            <td><code>data-sg-youtubeid="dQw4w9WgXcQ"</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Example with Data Attributes</h3>
+      <pre><code>&lt;div class="gallery"&gt;
+  &lt;img src="./images/thumb1.jpg" 
+       data-sg-src="./images/full1.jpg"
+       data-sg-desc="This is my description" 
+       alt="Image 1"&gt;
+  &lt;img src="./images/video-thumb.jpg" 
+       data-sg-youtubeid="4uxAecTudqE" 
+       alt="Video Title"&gt;
+&lt;/div&gt;</code></pre>
+    </section>
+
+    <section id="customization">
+      <h2>Customization</h2>
+      
+      <p>Simple Gallery uses CSS variables for easy theming. Override these in your stylesheet:</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Variable</th>
+            <th>Description</th>
+            <th>Default</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>--sg-modal-bg</code></td>
+            <td>Modal background color</td>
+            <td><code>rgba(0, 0, 0, 0.95)</code></td>
+          </tr>
+          <tr>
+            <td><code>--sg-text-color</code></td>
+            <td>Text color in modal</td>
+            <td><code>#ffffff</code></td>
+          </tr>
+          <tr>
+            <td><code>--sg-btn-bg</code></td>
+            <td>Button background color</td>
+            <td><code>rgba(255, 255, 255, 0.2)</code></td>
+          </tr>
+          <tr>
+            <td><code>--sg-modal-zindex</code></td>
+            <td>Modal z-index</td>
+            <td><code>1000</code></td>
+          </tr>
+          <tr>
+            <td><code>--sg-font-family</code></td>
+            <td>Font family</td>
+            <td><code>system-ui, sans-serif</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Example Customization</h3>
+      <pre><code>:root {
+  --sg-modal-bg: #e6e6e6;
+  --sg-text-color: #3b3b3b;
+  --sg-btn-bg: #b9c8c8;
+  --sg-modal-zindex: 10000;
+  --sg-font-family: Tahoma, sans-serif;
+}</code></pre>
+
+      <div class="note">
+        <strong>Note:</strong> The included CSS provides modal styling but not page layout for your gallery. You'll need to style the gallery container and images yourself to fit your design.
+      </div>
+    </section>
+
+    <section id="demo">
+      <h2>Live Examples</h2>
+      <p>Click on any image below to open the gallery modal. Use arrow keys to navigate and ESC to close.</p>
+
+      <h3>Gallery 1 - Mixed Content</h3>
+      <p>This gallery demonstrates images with descriptions and a YouTube video embed.</p>
 
       <div id="gal1" class="gallery">
         <div class="gallery-item"><img src="images/img1.jpg"
@@ -76,10 +374,10 @@
         <div class="gallery-item"><img src="images/img4.jpg" data-sg-youtubeid="4uxAecTudqE" alt="At the carwash"></div>
         <div class="gallery-item"><img src="images/img5.jpg" alt="Shell Sculpture"></div>
       </div>
-    </div>
 
-    <div class="full-page">
-      <h2>Gallery 2</h2>
+      <h3>Gallery 2 - Image Collection</h3>
+      <p>A simple collection of images with alt text and custom descriptions.</p>
+
       <div id="gal2" class="gallery">
         <div class="gallery-item"><img src="images/img6.jpg"
             alt="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Numquam neque reiciendis illo officiis nostrum recusandae tempore itaque, adipisci sint fuga repellendus exercitationem unde perferendis consectetur asperiores delectus vel aliquid accusamus?">
@@ -92,7 +390,29 @@
         </div>
         <div class="gallery-item"><img src="images/img10.jpg" alt="Another place"></div>
       </div>
-    </div>
+    </section>
+
+    <section id="browser-support">
+      <h2>Browser Support</h2>
+      <p>Simple Gallery works in all modern browsers that support ES6:</p>
+      <ul>
+        <li>Chrome (latest)</li>
+        <li>Firefox (latest)</li>
+        <li>Safari (latest)</li>
+        <li>Edge (latest)</li>
+        <li>Opera (latest)</li>
+      </ul>
+    </section>
+
+    <section id="license">
+      <h2>License</h2>
+      <p>Simple Gallery is released under the MIT License. See the <a href="https://github.com/foxshack/simplegallery/blob/main/LICENSE">LICENSE</a> file for details.</p>
+    </section>
+
+    <footer style="text-align: center; padding: 40px 0; color: #999; border-top: 1px solid #ddd; margin-top: 60px;">
+      <p>Made by <a href="https://github.com/foxshack" style="color: #667eea; text-decoration: none;">Mike Horrocks</a></p>
+      <p><a href="https://github.com/foxshack/simplegallery" style="color: #667eea; text-decoration: none;">GitHub</a> | <a href="https://github.com/foxshack/simplegallery/issues" style="color: #667eea; text-decoration: none;">Issues</a></p>
+    </footer>
   </div>
 
   <script src="../dist/gallery.js"></script>

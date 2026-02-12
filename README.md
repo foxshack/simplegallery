@@ -17,7 +17,7 @@ Include the CSS and JS files, then wrap your images in a `.gallery` container:
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Simple Gallery Example</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/foxshack/simplegallery/dist/gallery.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/foxshack/simplegallery@1.0.3/dist/gallery.css">
 </head>
 <body>
   <div class="gallery">
@@ -27,7 +27,7 @@ Include the CSS and JS files, then wrap your images in a `.gallery` container:
     <img src="./images/img4.jpg" alt="At the carwash">
     <img src="./images/img5.jpg" alt="Shell Sculpture">
   </div>
-  <script src="https://cdn.jsdelivr.net/gh/foxshack/simplegallery/dist/gallery.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/foxshack/simplegallery@1.0.3/dist/gallery.js"></script>
 </body>
 </html>
 ```
@@ -35,7 +35,7 @@ Include the CSS and JS files, then wrap your images in a `.gallery` container:
 ## Installation (npm)
 
 ```bash
-npm install -D github:foxshack/simplegallery#1.0
+npm install -D github:foxshack/simplegallery#1.0.3
 ```
 
 **ES Module Usage:**
